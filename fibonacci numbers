@@ -1,0 +1,14 @@
+n=int(input("Enter Fibonacci series count:"))
+list1=[]
+n1,n2,fn=0,1,0
+if n<=1:
+   print("Invalid Number!")
+else:
+    list1.append(n1)
+    list1.append(n2)
+    for item in range(n-2):
+        fn=n1+n2
+        list1.append(fn)
+        n1=n2
+        n2=fn
+    print(*list1, sep=",")
