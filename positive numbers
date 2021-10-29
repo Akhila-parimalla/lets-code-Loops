@@ -1,0 +1,10 @@
+list1=[]
+n=int(input("Enter list length:"))
+print("Enter List elements:")
+for i in range(0,n):
+    num1=int(input())
+    #if num1>=0:
+    list1.append(num1)
+for j in list1:
+   if j >= 0:
+       print(j,end=" ")
