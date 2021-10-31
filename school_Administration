@@ -1,0 +1,41 @@
+import csv
+def write_into_csv(data_list):
+    with open('student_info.csv','a',newline='')as csv_file:
+        writer=csv.writer(csv_file)
+
+        if csv_file.tell()==0:
+            writer.writerow(("Name","Father name","Age","Contact Number","Address","Email\0"))
+        writer.writerow(data_list)
+
+if __name__=='__main__':
+    next=True
+    student_num=1
+    while(next):
+        student_data=input("Enter student information for student #{} in the following format(Name Father name Age Contact_Number Address E-mail_ID):".format(student_num))
+
+        student_data_list =student_data.split(' ')
+        print("\nThe Entered information is :-\nName: {}\nAge: {}\nContact_number: {}\nAddress: {}\nEmail_ID: {}".format(student_data_list[0],student_data_list[1],student_data_list[2],student_data_list[3],student_data_list[4],student_data_list[5]))
+
+        data_check=input("Is the Entered information is correct?(Yes/No): ")
+        
+
+        if data_check.lower() =="yes":
+            write_into_csv(student_data_list)
+            
+            next_check1=input("Do you want to Enter details for another student? (Yes/No): ")
+            
+            if next_check1.lower()=="yes":
+                next=True
+                student_num+=1
+
+            elif next_check1.lower()=="no":
+                next=False
+            else:
+                print("Invalid Input")
+                
+            
+                
+        elif data_check.lower()=="no":
+            print("\nPlease Re-enter the details: ",)
+        else:
+            print("Invalid Input")
